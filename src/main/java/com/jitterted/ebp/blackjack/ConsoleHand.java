@@ -1,0 +1,9 @@
+package com.jitterted.ebp.blackjack;
+
+public class ConsoleHand {
+
+    // Take a DOMAIN OBJECT and return (translate/transform/map) DTO (in this case a String is good enough)
+    static String displayFirstCard(Hand hand) {
+        return ConsoleCard.display(hand.firstCard());
+    }
+}

@@ -6,7 +6,7 @@ import static org.fusesource.jansi.Ansi.ansi;
 
 public class ConsoleCard {
 
-    //
+    // Take a DOMAIN OBJECT and return (translate/transform/map) DTO (in this case a String is good enough)
     public static String display(Card card) {
         String[] lines = new String[7];
         lines[0] = "┌─────────┐";
