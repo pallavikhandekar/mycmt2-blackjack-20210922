@@ -16,6 +16,17 @@ public class StubDeck extends Deck {
         this.iterator = cards.listIterator();
     }
 
+    public static Deck playerHitsAndGoesBust() {
+        return new StubDeck(Rank.TEN, Rank.EIGHT,
+                            Rank.QUEEN, Rank.JACK,
+                            Rank.THREE);
+    }
+
+    public static Deck playerStandsAndBeatsDealer() {
+        return new StubDeck(Rank.TEN, Rank.EIGHT,
+                            Rank.QUEEN, Rank.JACK);
+    }
+
     @Override
     public Card draw() {
         return iterator.next();

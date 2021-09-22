@@ -8,10 +8,7 @@ class GameOutcomeTest {
 
     @Test
     public void playerHitsAndGoesBustOutcomeIsPlayerIsBustedAndLoses() throws Exception {
-        Deck stubDeck = new StubDeck(Rank.TEN, Rank.EIGHT,
-                                     Rank.QUEEN, Rank.JACK,
-                                     Rank.THREE);
-        Game game = new Game(stubDeck);
+        Game game = new Game(StubDeck.playerHitsAndGoesBust());
         game.initialDeal();
 
         game.playerHits();
@@ -20,4 +17,17 @@ class GameOutcomeTest {
         assertThat(game.determineOutcome())
                 .isEqualTo("You Busted, so you lose.  💸");
     }
+
+    @Test
+    public void playerDealtBetterHandThanDealerAndStandsThenPlayerBeatsDealer() throws Exception {
+        Game game = new Game(StubDeck.playerStandsAndBeatsDealer());
+        game.initialDeal();
+
+        game.playerStands();
+        game.dealerTurn();
+
+        assertThat(game.determineOutcome())
+                .isEqualTo("You beat the Dealer! 💵");
+    }
+
 }
