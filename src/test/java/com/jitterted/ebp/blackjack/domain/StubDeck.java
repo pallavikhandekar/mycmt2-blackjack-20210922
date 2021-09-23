@@ -26,6 +26,12 @@ public class StubDeck extends Deck {
                             Rank.THREE);
     }
 
+    public static Deck playerHitsAndDoesNotGoBust() {
+        return new StubDeck(Rank.TEN, Rank.EIGHT,
+                            Rank.SIX, Rank.JACK,
+                            Rank.THREE);
+    }
+
     public static Deck playerStandsAndBeatsDealer() {
         return new StubDeck(Rank.TEN, Rank.EIGHT,
                             Rank.QUEEN, Rank.JACK);

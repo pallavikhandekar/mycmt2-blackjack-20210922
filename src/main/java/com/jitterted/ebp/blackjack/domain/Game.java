@@ -61,6 +61,7 @@ public class Game {
     }
 
     public void playerHits() {
+        // Pre-condition: player is not already done
         playerHand.drawFrom(deck);
         playerDone = playerHand.isBusted();
     }
