@@ -12,7 +12,6 @@ class GameOutcomeTest {
         game.initialDeal();
 
         game.playerHits();
-        game.dealerTurn();
 
         assertThat(game.determineOutcome())
                 .isEqualTo(GameOutcome.PLAYER_BUSTED);
@@ -24,7 +23,6 @@ class GameOutcomeTest {
         game.initialDeal();
 
         game.playerStands();
-        game.dealerTurn();
 
         assertThat(game.determineOutcome())
                 .isEqualTo(GameOutcome.PLAYER_BEATS_DEALER);
@@ -41,5 +39,17 @@ class GameOutcomeTest {
         assertThat(game.determineOutcome())
                 .isEqualTo(GameOutcome.PLAYER_WINS_BLACKJACK);
     }
+
+    @Test
+    public void standResultsInDealerDrawingCardOnTheirTurn() throws Exception {
+        Game game = new Game(StubDeck.dealerDrawsAdditionalCard());
+        game.initialDeal();
+
+        game.playerStands();
+
+        assertThat(game.dealerHand().cards())
+                .hasSize(3);
+    }
+
 
 }
